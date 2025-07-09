@@ -33,7 +33,7 @@ onMounted(async () => {
   }
 
   try {
-    const response = await axios.get('http://localhost:8000/api/user/me', {
+    const response = await axios.get('https://gymarn-production.up.railway.app/api/user/me', {
       headers: {
         Authorization: `Bearer ${token}`,
       },

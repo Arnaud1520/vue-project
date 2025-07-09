@@ -67,12 +67,12 @@ export default {
     const token = localStorage.getItem('token')
 
     try {
-      const res = await axios.get(`http://localhost:8000/api/programmes/${id}`, {
+      const res = await axios.get(`https://gymarn-production.up.railway.app/api/programmes/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       this.programme = res.data
 
-      const resExos = await axios.get(`http://localhost:8000/api/exercices`, {
+      const resExos = await axios.get(`https://gymarn-production.up.railway.app/api/exercices`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       this.exercices = resExos.data.member
@@ -103,7 +103,7 @@ export default {
 
       try {
         await axios.patch(
-          `http://localhost:8000/api/programmes/${id}`,
+          `https://gymarn-production.up.railway.app/api/programmes/${id}`,
           { programmeExercices: preparedProgrammeExercices },
           {
             headers: {

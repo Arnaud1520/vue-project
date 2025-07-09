@@ -81,7 +81,7 @@ const deleteSeance = async () => {
   const token = localStorage.getItem('token')
 
   try {
-    await axios.delete(`http://localhost:8000/api/seances/${selectedSeance.value.id}`, {
+    await axios.delete(`https://gymarn-production.up.railway.app/api/seances/${selectedSeance.value.id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -103,14 +103,14 @@ onMounted(async () => {
   const token = localStorage.getItem('token')
 
   try {
-    const me = await axios.get('http://localhost:8000/api/user/me', {
+    const me = await axios.get('https://gymarn-production.up.railway.app/api/user/me', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     })
     const userId = me.data.id
 
-    const response = await axios.get('http://localhost:8000/api/seances', {
+    const response = await axios.get('https://gymarn-production.up.railway.app/api/seances', {
       headers: {
         Authorization: `Bearer ${token}`,
       },

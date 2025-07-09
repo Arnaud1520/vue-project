@@ -129,7 +129,7 @@ async function ajouterSeance() {
   }
 
   try {
-    await axios.post('http://localhost:8000/api/seance', payload, {
+    await axios.post('https://gymarn-production.up.railway.app/api/seance', payload, {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
@@ -149,7 +149,7 @@ async function ajouterSeance() {
 onMounted(async () => {
   const token = localStorage.getItem('token')
   try {
-    const response = await axios.get('http://localhost:8000/api/programmes', {
+    const response = await axios.get('https://gymarn-production.up.railway.app/api/programmes', {
       headers: {
         Authorization: `Bearer ${token}`,
       },

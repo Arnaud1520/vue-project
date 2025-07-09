@@ -54,7 +54,7 @@ const form = ref({
 })
 
 // URL de base pour accéder aux images 
-const IMAGE_BASE_URL = 'http://localhost:8000/uploads/exercices/' // ou le dossier où tes images sont stockées
+const IMAGE_BASE_URL = 'https://gymarn-production.up.railway.app/uploads/exercices/' // ou le dossier où tes images sont stockées
 
 function getImageUrl(filename) {
   return IMAGE_BASE_URL + filename
@@ -67,7 +67,7 @@ function handleFileUpload(event) {
 async function fetchExercice() {
   const token = localStorage.getItem('token')
   try {
-    const res = await axios.get(`http://localhost:8000/api/exercices/${route.params.id}`, {
+    const res = await axios.get(`https://gymarn-production.up.railway.app/api/exercices/${route.params.id}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     exercice.value = res.data
@@ -83,7 +83,7 @@ async function fetchExercice() {
 async function submitUpdate() {
   const token = localStorage.getItem('token')
   try {
-    await axios.patch(`http://localhost:8000/api/exercices/${route.params.id}`, {
+    await axios.patch(`https://gymarn-production.up.railway.app/api/exercices/${route.params.id}`, {
       name: form.value.name,
       categorie: form.value.categorie,
       description: form.value.description
@@ -111,7 +111,7 @@ async function uploadImage() {
   try {
     // Ici, tu dois avoir un endpoint dans Symfony pour gérer uniquement l'upload d'image, par ex:
     // POST /api/exercices/{id}/upload-image
-    await axios.post(`http://localhost:8000/api/exercices/${route.params.id}/upload-image`, formData, {
+    await axios.post(`https://gymarn-production.up.railway.app/api/exercices/${route.params.id}/upload-image`, formData, {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'multipart/form-data'

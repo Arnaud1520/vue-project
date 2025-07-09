@@ -65,7 +65,7 @@ const editMode = ref(false)
 const fetchUser = async () => {
   try {
     const token = localStorage.getItem('token')
-    const { data } = await axios.get('http://localhost:8000/api/user/me', {
+    const { data } = await axios.get('https://gymarn-production.up.railway.app/api/user/me', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -86,7 +86,7 @@ const fetchUser = async () => {
 const updateProfile = async () => {
   try {
     const token = localStorage.getItem('token')
-    const { data } = await axios.put('http://localhost:8000/api/user/update', editUser, {
+    const { data } = await axios.put('https://gymarn-production.up.railway.app/api/user/update', editUser, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -90,7 +90,7 @@ watch(
 onMounted(async () => {
   const token = localStorage.getItem('token')
   try {
-    const response = await axios.get('http://localhost:8000/api/exercices', {
+    const response = await axios.get('https://gymarn-production.up.railway.app/api/exercices', {
       headers: { Authorization: `Bearer ${token}` }
     })
     exercices.value = response.data['hydra:member'] ?? response.data.member ?? response.data
@@ -144,7 +144,7 @@ async function submitProgramme() {
 console.log('payload:', payload)
 
   try {
-    const res = await axios.post('http://localhost:8000/api/programmes', payload, {
+    const res = await axios.post('https://gymarn-production.up.railway.app/api/programmes', payload, {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/ld+json'

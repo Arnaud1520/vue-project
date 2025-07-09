@@ -123,7 +123,7 @@ import { useRouter } from 'vue-router';
   
 const login = async () => {
   try {
-    const response = await axios.post('http://localhost:8000/api/login', {
+    const response = await axios.post('https://gymarn-production.up.railway.app/api/login', {
       email: email.value,
       password: password.value,
     });
@@ -131,7 +131,7 @@ const login = async () => {
     localStorage.setItem('token', response.data.token);
 
     // Récupérer les infos utilisateur
-    const userRes = await axios.get('http://localhost:8000/api/user/me', {
+    const userRes = await axios.get('https://gymarn-production.up.railway.app/api/user/me', {
       headers: {
         Authorization: `Bearer ${response.data.token}`
       }
@@ -156,7 +156,7 @@ const login = async () => {
     }
   
     try {
-      const response = await axios.post('http://localhost:8000/api/register', {
+      const response = await axios.post('https://gymarn-production.up.railway.app/api/register', {
         name: name.value,
         email: email.value,
         password: password.value,

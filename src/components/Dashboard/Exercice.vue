@@ -111,7 +111,7 @@ async function ajouterExercice() {
   formData.append('imageFile', newExerciseFile.value)
 
   try {
-    await axios.post('http://localhost:8000/api/exercices', formData, {
+    await axios.post('https://gymarn-production.up.railway.app/api/exercices', formData, {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'multipart/form-data'
@@ -134,7 +134,7 @@ async function ajouterExercice() {
 async function fetchExercices() {
   const token = localStorage.getItem('token')
   try {
-    const response = await axios.get('http://localhost:8000/api/exercices', {
+    const response = await axios.get('https://gymarn-production.up.railway.app/api/exercices', {
       headers: { Authorization: `Bearer ${token}` },
     })
     exercices.value = response.data.member ?? response.data
